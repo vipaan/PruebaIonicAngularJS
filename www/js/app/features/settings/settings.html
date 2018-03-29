@@ -1,0 +1,25 @@
+<ion-view view-title="{{ 'settings-header' | translate }}">
+  <ion-content ng-class="vm.fontSize">
+    <ion-list>
+      <ion-item>
+        <label class="item item-input item-select">
+          <div class="input-label">{{ 'settings-header' | translate }}</div>
+            <select ng-model="language" ng-change="vm.changeLanguage(language)">
+              <option value="es">{{ 'spanish-lang' | translate }}</option>
+              <option value="en">{{ 'english-lang' | translate }}</option>
+            </select>
+          </label>
+      </ion-item>
+      <ion-item>
+        <label class="item item-input item-select">
+              <div class="input-label">{{ 'font-size' | translate }}</div>
+              <select ng-model="size" ng-change="vm.changeLetterSize(size)">
+                <option value="18">{{ 'big' | translate }}</option>
+                <option value="16">{{ 'medium' | translate }}</option>
+                <option value="14">{{ 'small' | translate }}</option>
+              </select>
+            </label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

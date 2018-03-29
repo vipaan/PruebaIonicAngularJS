@@ -1,0 +1,41 @@
+<ion-view view-title="{{ 'tasks-header' | translate}}">
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">Scotch-Todo</h1>
+    <!-- New Task button-->
+  </ion-header-bar>
+
+  <ion-content ng-class="vm.fontSize">
+    <div ng-if="!vm.tasks[0]" class="noTasks">
+      <div class="item-body noTasksMessage">
+        {{ 'no-tasks' | translate}}
+      </div>
+    </div>
+    <div class="list card" ng-repeat="task in vm.tasks track by $index">
+      <div class="item item-divider">
+        <span ng-bind="task.title"></span>
+      </div>
+      <div class="item item-body">
+        <span ng-bind="task.content"></span>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <span class="item item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="task.completed" ng-click="vm.completeTask($index)">
+                    </label>
+                </span>
+        <a class="tab-item assertive" ng-click="vm.removeTask($index)">
+                    <i class="icon ion-android-close"></i>
+                </a>
+      </div>
+
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="footerBorder">
+    <ion-toolbar>
+      <ion-title class="footerTitle">{{vm.tasks.length}}</ion-title>
+      <a class="button button-positive  ion-compose" ng-click="vm.popup()">{{ 'new-task' | translate}}</a>
+    </ion-toolbar>
+  </ion-footer-bar>
+</ion-view>
